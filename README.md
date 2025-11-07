@@ -9,7 +9,7 @@ Este proyecto desarrolla un **Agente Inteligente** capaz de convertir consultas 
 * **Base de Datos MySQL:** Orientado al esquema de gestión de inventario (`tienda_inventario`).
 * **Seguridad:** Implementación de lógica de validación para prevenir la ejecución de consultas peligrosas (`DROP`, `TRUNCATE`).
 
-## ⚙️ Esquema de Base de Datos
+##  Esquema de Base de Datos
 
 El agente interactúa con el esquema `tienda_inventario`, compuesto por las siguientes tablas principales:
 
@@ -42,3 +42,33 @@ El agente puede manejar las siguientes operaciones de gestión de inventario:
 * Una clave API de **Groq** (disponible en [link text](https://groq.com/)).
 
 ### 2. Estructura del Proyecto
+Agente_SQL_Final/ ├── venv/ ├── templates/ │ └── index.html # Interfaz de usuario (Frontend) ├── static/ │ └── style.css # Archivo de estilos CSS └── app.py # Servidor Flask, Lógica y Conexión a BD
+
+### 3. Configuración de Entorno (Implícita en app.py)
+
+Asegúrate de configurar tus credenciales dentro del archivo `app.py`:
+
+```python
+# Reemplaza con tus credenciales y clave Groq
+GROQ_API_KEY = "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"
+    "database": "tienda_inventario",
+    "user": "root",
+    "password": "1234" 
+}
+# 1. Crear entorno virtual (si no existe)
+python -m venv venv 
+
+# 2. Activar entorno virtual
+# En Windows:
+venv\Scripts\activate
+# En Linux/macOS:
+source venv/bin/activate
+
+# 3. Instalar librerías
+pip install Flask mysql-connector-python groq
+Ejecución del Agente
+Asegúrate de que tu servidor MySQL esté encendido y que la base de datos tienda_inventario exista.
+
+Bash
+
+python app.py
